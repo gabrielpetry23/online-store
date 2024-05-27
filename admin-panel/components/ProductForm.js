@@ -14,17 +14,19 @@ export default function ProductForm({
     const [goToProducts, setGoToProducts] = useState(false);
     const router = useRouter();
 
-    async function createProduct(e) {
+    async function saveProduct(e) {
         e.preventDefault();
+        const data = {title,description,price};
 
         if (_id) {
-            //update
-        } else {
-            //create
-        }
+            //Update
+            await axios.put('/api/products', {...data, _id});
 
-        const data = {title,description,price};
-        await axios.post('/api/products', data);
+        } else {
+            //Create
+            await axios.post('/api/products', data);
+        }
+        
         setGoToProducts(true);
     }
 
@@ -33,7 +35,7 @@ export default function ProductForm({
     }
 
     return (
-            <form onSubmit={createProduct}>
+            <form onSubmit={saveProduct}>
                 <label>Product name</label>
                 <input
                     type="text" 

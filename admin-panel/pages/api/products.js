@@ -11,19 +11,19 @@ export default async function handle(req, res) {
             res.json(await Product.findOne({_id:req.query.id}));
         } else {
             res.json(await Product.find());
-            res.status(200).json(products);
         }
-    }
-
-    if (method === 'POST') {
+    } else if (method === 'POST') {
         const {title,description,price} = req.body;
         const productJson = await Product.create({
             title,description,price,
         });
-        res.status(201).json(productJson);
         res.json(productJson);
+    } else if (method === 'PUT') {
+        const {title,description,price, _id} = req.body;
+        await Product.updateOne({_id: _id}, {title:title,description:description,price:price});
+        res.json(true);
     } else {
-        res.setHeader('Allow', ['POST']);
+        res.setHeader('Allow', ['GET', 'POST', 'PUT']);
         res.status(405).end(`Method ${method} Not Allowed`);
     }
 }
