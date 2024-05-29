@@ -17,7 +17,7 @@ export default function Products() {
             <table className="basic">
                 <thead>
                     <tr>
-                        <td>P Name</td>
+                        <td>Product Name</td>
                         <td></td>
                     </tr>
                 </thead>

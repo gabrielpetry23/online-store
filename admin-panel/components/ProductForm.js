@@ -57,7 +57,7 @@ export default function ProductForm({
         }
     }
 
-    function updateImgOrder(images) {
+    function orderImages(images) {
         setImages(images);
     }
 
@@ -78,7 +78,7 @@ export default function ProductForm({
                     <ReactSortable
                         list={images}
                         className='flex flex-wrap gap-2'
-                        setList={updateImgOrder}>
+                        setList={orderImages}>
                         {!!images?.length && images.map(link => (
                             <div key={link} className='h-24'>
                                 <img src={link} alt="" className='rounded-lg' />
@@ -115,7 +115,7 @@ export default function ProductForm({
                     value={price}
                     onChange={e => setPrice(e.target.value)}
                 ></input>
-                <button type="submit" className="btn-add">Add</button>
+                <button type="submit" className="btn-save">Save</button>
             </form>
     );
 }

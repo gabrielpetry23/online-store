@@ -6,5 +6,5 @@ export default function LoadSpinner() {
             color={'#1E3A8A'}
             speedMultiplier={2}
         ></BeatLoader>
-    )
+    );
 }

@@ -23,7 +23,7 @@ label {
     @apply text-blue-900;
 }
 
-.btn-add {
+.btn-save {
     @apply bg-blue-900 text-white px-4 py-1 rounded-md;
 }
 

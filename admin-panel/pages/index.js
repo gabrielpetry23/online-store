@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import Panel from "@/components/Panel";
+import Nav from "@/components/Nav";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home() {
