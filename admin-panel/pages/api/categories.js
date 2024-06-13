@@ -10,8 +10,11 @@ export default async function handle(req,res) {
     }
 
     if (method === 'POST') {
-        const {name} = req.body;
-        const categoryJson = await Category.create({name});
+        const {name,parentCategory} = req.body;
+        const categoryJson = await Category.create({
+            name,
+            parent: parentCategory,
+        });
         res.json(categoryJson);
     }
 }
